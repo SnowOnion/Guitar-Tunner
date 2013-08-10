@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
 
 	private Button tunning_button = null;
 	private TextView frequencyView = null;
+	private TextView nameView = null;
 
 	private Handler handler = new Handler();
 	private Runnable callback = new Runnable() {
@@ -42,6 +43,7 @@ public class MainActivity extends Activity {
 
 		tunning_button = (Button) findViewById(R.id.tunning_button);
 		frequencyView = (TextView) findViewById(R.id.frequency);
+		nameView= (TextView) findViewById(R.id.name);
 		tunning_button.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -74,6 +76,21 @@ public class MainActivity extends Activity {
 		tunner.close();
 	}
 	
+	private String f2name(double freq){
+		if( freq>=82.41 && freq<89 ){return "F";}
+		else if( freq>=89 && freq<95 ){return "F#";}
+		else if( freq>=95 && freq<100 ){return "G";}
+		else if( freq>=100 && freq<105 ){return "G#";}
+		else if( freq>=105 && freq<111){return "A";}
+		else if( freq>=111 && freq<118){return "A#";}
+		else if( freq>=118 && freq<125){return "B";}
+		else if( freq>=125 && freq<134){return "C";}
+		else if( freq>=134 && freq<140 ){return "C#";}
+		else if( freq>=140 && freq<149){return "D";}
+		else if( freq>=149 && freq<158){return "D#";}
+		else{return "E";}
+	}
+	
 	private void updateText(double currentFrequency) {
 		while (currentFrequency < 82.41) {
 			currentFrequency = currentFrequency * 2;
@@ -84,5 +101,6 @@ public class MainActivity extends Activity {
 		BigDecimal a = new BigDecimal(currentFrequency);
 		BigDecimal result = a.setScale(2, RoundingMode.DOWN);
 		frequencyView.setText(String.valueOf(result));
+		nameView.setText(f2name(currentFrequency));
 	}
 }

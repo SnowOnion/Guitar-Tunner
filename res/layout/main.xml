@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tuner" >
+    android:background="@color/tuner" >
+    
     <Button
         android:id="@+id/tunning_button"
         android:layout_width="wrap_content"
@@ -22,6 +23,18 @@
         android:layout_marginTop="134dp"
         android:typeface="sans"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frequency"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:ems="10"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
     
 </RelativeLayout>
