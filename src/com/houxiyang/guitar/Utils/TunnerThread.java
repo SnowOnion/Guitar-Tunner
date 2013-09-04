@@ -5,6 +5,7 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Handler;
 
+
 /**
  * 通过调用FFT方法来实时计算输入音频的频率
  * 
@@ -51,7 +52,6 @@ public class TunnerThread extends Thread {
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	private void initAudioRecord(int sampleRate) {
 		audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
 				sampleRate, AudioFormat.CHANNEL_CONFIGURATION_MONO,
@@ -67,9 +67,10 @@ public class TunnerThread extends Thread {
 			if (currentFrequency > 0) {
 				handler.post(callback);
 				try {
-					if (audioRecord.getState() ==  AudioRecord.STATE_INITIALIZED)
+					if (audioRecord.getState() == AudioRecord.STATE_INITIALIZED)
 						audioRecord.stop();
-					Thread.sleep(20);
+					//Thread.sleep(20);
+					Thread.sleep(5);
 					audioRecord.startRecording();
 				} catch (InterruptedException e) {
 					e.printStackTrace();

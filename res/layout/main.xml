@@ -20,21 +20,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
-        android:typeface="sans"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="24dp"
+        android:text="INIT"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:typeface="sans" />
 
-    <EditText
+    <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/frequency"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp"
-        android:ems="10"
-        android:inputType="textPersonName" >
+        android:text="TextView"
+        android:textSize="24dp" />
 
-        <requestFocus />
-    </EditText>
+    <EditText
+        android:id="@+id/log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tunning_button"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:ems="10" />
     
 </RelativeLayout>
